@@ -17,6 +17,11 @@ fi
 python3 -m pip install pip --upgrade
 python3 -m pip install -r /etc/odoo/requirements.txt
 
+# install git
+apt-get update
+apt-get -y install git
+git --version
+
 DB_ARGS=()
 function check_config() {
     param="$1"
