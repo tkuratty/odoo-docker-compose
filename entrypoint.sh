@@ -14,8 +14,8 @@ fi
 : ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 # install python packages
-pip3 install pip --upgrade
-pip3 install -r /etc/odoo/requirements.txt
+python3 -m pip install pip --upgrade
+python3 -m pip install -r /etc/odoo/requirements.txt
 
 DB_ARGS=()
 function check_config() {
