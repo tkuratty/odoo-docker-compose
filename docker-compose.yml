@@ -22,29 +22,28 @@ services:
       - "8069:8069"
       # - "20014:8072" # live chat
     tty: true
-    command: --
+    #command: --
+    command: /bin/bash # for debug by vscode (do not run odoo)
     #    command: odoo scaffold /mnt/extra-addons/custom_module
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
+      - PORT=5432
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
-      # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
+      - ./entrypoint.sh:/entrypoint.sh # if you want to install additional Python packages, uncomment this line!
       - ~/Documents/odoo/addons:/mnt/extra-addons
       - "odoo-data:/var/lib/odoo"
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
       - ~/Documents/odoo/config:/etc/odoo # for odoo.conf
-      - "odoo-lib:/usr/local/lib"
-
     restart: always # run as a service
 
 # use existing volumes
 volumes:
-  odoo-lib:
   odoo-vscode:
   odoo-home:
   odoo-custom-addons:
