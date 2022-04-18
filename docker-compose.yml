@@ -35,14 +35,16 @@ services:
       - ~/Documents/odoo/addons:/mnt/extra-addons
       - "odoo-data:/var/lib/odoo"
       - "odoo-vscode:/opt/odoo/.vscode"
-      - "odoo-home:/home/odoo"
+      - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
       - "odoo-web-config:/etc/odoo" # for odoo.conf
+      - "odoo-lib:/usr/local/lib"
 
     restart: always # run as a service
 
 # use existing volumes
 volumes:
+  odoo-lib:
   odoo-vscode:
   odoo-home:
   odoo-custom-addons:
