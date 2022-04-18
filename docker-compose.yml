@@ -22,8 +22,8 @@ services:
       - "8069:8069"
       # - "20014:8072" # live chat
     tty: true
-    #command: --
-    command: /bin/bash # for debug by vscode (do not run odoo)
+    command: --
+    # command: /bin/bash # for debug by vscode (do not run odoo)
     #    command: odoo scaffold /mnt/extra-addons/custom_module
     environment:
       - HOST=db
