@@ -37,7 +37,7 @@ services:
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
-      - "odoo-web-config:/etc/odoo" # for odoo.conf
+      - ~/Documents/odoo/config:/etc/odoo # for odoo.conf
       - "odoo-lib:/usr/local/lib"
 
     restart: always # run as a service
@@ -48,7 +48,6 @@ volumes:
   odoo-vscode:
   odoo-home:
   odoo-custom-addons:
-  odoo-web-config:
   odoo-db:
     external: true
   odoo-data:
