@@ -1,0 +1,24 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Odoo",
+      "type": "python",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "/usr/bin/odoo",
+      "args": [
+        "--db_host=${env:HOST}",
+        "--db_port=${env:PORT}",
+        "--db_user=${env:USER}",
+        "--db_password=${env:PASSWORD}",
+        "--database=Odoo14",
+        "--limit-time-real=100000"
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}
