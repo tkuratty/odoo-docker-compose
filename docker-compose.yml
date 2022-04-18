@@ -34,10 +34,14 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ~/Documents/odoo/addons:/mnt/extra-addons
       - "odoo-data:/var/lib/odoo"
+      - "odoo-vscode:/opt/odoo/.vscode"
+      - "odoo-home:/home/odoo"
     restart: always # run as a service
 
 # use existing volumes
 volumes:
+  odoo-vscode:
+  odoo-home:
   odoo-db:
     external: true
   odoo-data:
