@@ -36,12 +36,14 @@ services:
       - "odoo-data:/var/lib/odoo"
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/home/odoo"
+      - "odoo-custom-addons:/opt/odoo/custom-addons"
     restart: always # run as a service
 
 # use existing volumes
 volumes:
   odoo-vscode:
   odoo-home:
+  odoo-custom-addons:
   odoo-db:
     external: true
   odoo-data:
