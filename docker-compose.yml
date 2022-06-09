@@ -30,6 +30,7 @@ services:
       - USER=odoo
       - PASSWORD=odoo
       - PORT=5432
+      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
     volumes:
       #- /etc/timezone:/etc/timezone:ro
       #- /etc/localtime:/etc/localtime:ro
@@ -40,6 +41,9 @@ services:
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
       - ~/Documents/odoo/config:/etc/odoo # for odoo.conf
+      - type: bind
+        source: /run/host-services/ssh-auth.sock
+        target: /run/host-services/ssh-auth.sock
     restart: always # run as a service
 
 # use existing volumes
