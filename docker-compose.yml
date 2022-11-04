@@ -52,6 +52,4 @@ volumes:
   odoo-home:
   odoo-custom-addons:
   odoo-db:
-    external: true
   odoo-data:
-    external: true
