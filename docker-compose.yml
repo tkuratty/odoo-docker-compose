@@ -13,7 +13,9 @@ services:
       - "odoo-db:/var/lib/postgresql/data"
 
   odoo:
-    image: odoo:14
+    build:
+      context: ./odoo16
+      dockerfile: Dockerfile
     container_name: odoo
     user: root
     depends_on:
@@ -40,10 +42,10 @@ services:
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
-      - ~/Documents/odoo/config:/etc/odoo # for odoo.conf
-      - type: bind
-        source: /run/host-services/ssh-auth.sock
-        target: /run/host-services/ssh-auth.sock
+      - ../config:/etc/odoo # for odoo.conf
+      #- type: bind
+      #  source: /run/host-services/ssh-auth.sock
+      #  target: /run/host-services/ssh-auth.sock
     restart: always # run as a service
 
 # use existing volumes

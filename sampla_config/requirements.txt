@@ -1,8 +1,9 @@
 ###### Requirements without Version Specifiers ######`
-flake8
-pylint-odoo
-autopep8
+#flake8
+pandas
 debugpy
+black
+pre-commit
 
 ###### Requirements with Version Specifiers ######`
 # docopt == 0.6.1             # Version Matching. Must be version 0.6.1
