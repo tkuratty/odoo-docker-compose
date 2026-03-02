@@ -15,7 +15,7 @@ services:
 
   odoo:
     build:
-      context: ./odoo19
+      context: ./odoo18
       dockerfile: Dockerfile
     container_name: odoo
     depends_on:
