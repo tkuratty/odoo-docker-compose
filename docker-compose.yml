@@ -2,9 +2,8 @@ version: "3.8"
 
 services:
   db:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: db
-    privileged: true
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
@@ -12,13 +11,13 @@ services:
     restart: always
     volumes:
       - "odoo-db:/var/lib/postgresql/data"
+    # Alpine版は軽量でsysctl設定も少ない
 
   odoo:
     build:
       context: ./odoo19
       dockerfile: Dockerfile
     container_name: odoo
-    privileged: true
     depends_on:
       - db
     ports:
@@ -38,7 +37,6 @@ services:
       - "odoo-custom-addons:/opt/odoo/custom-addons"
     restart: always
 
-# use existing volumes
 volumes:
   odoo-vscode:
   odoo-home:
