@@ -48,7 +48,7 @@ RUN mkdir -p /mnt/extra-addons /workspace
 USER odoo
 
 # Odoo設定ファイルのコピー
-COPY ./config/odoo.conf /etc/odoo/odoo.conf
+COPY ./config/odoo.conf /etc/odoo/odoo.conf 2>/dev/null || true
 
 EXPOSE 8069 8071 8072
 

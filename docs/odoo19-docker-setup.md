@@ -1,10 +1,12 @@
-# Odoo 17 + Docker開発環境構築ガイド
+# Odoo 19.0 + Docker開発環境構築ガイド
 
 ## はじめに
 
 Odoo開発を始めたいけど、環境構築で躓いたことはありませんか？
 
-本記事では、Dockerを使ってOdoo 17の開発環境を簡単に構築する方法を紹介します。GitHub CLI（gh）やPre-commitも含めた、OCA準拠の開発環境を目指します。
+本記事では、Dockerを使ってOdoo 19.0（開発版）の開発環境を簡単に構築する方法を紹介します。GitHub CLI（gh）やPre-commitも含めた、OCA準拠の開発環境を目指します。
+
+> **注意**: 本記事はOdoo 17をベースにしています。Odoo 19.0が正式リリースされたら、ベースイメージを更新予定です。
 
 ## 完成形
 
@@ -36,7 +38,7 @@ cd odoo-dev-env
 ### 2. Dockerfile作成
 
 ```dockerfile
-FROM odoo:17.0
+FROM odoo:17.0  # TODO: 19.0リリース後に変更
 
 USER root
 
