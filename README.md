@@ -1,34 +1,46 @@
-# Odoo Docker Compose
+# Odoo 18.0 + Docker 開発環境構築
 
-## ブランチ構成
-
-- `main` - 安定版（Odoo 16）
-- `18.0` - 開発版（Odoo 18.0 + 開発ツール）← 現在のブランチ
-
-## 18.0ブランチの特徴
-
-- **Odoo 18.0**（2024年10月リリースの最新版）対応
-- **GitHub CLI (gh)** 同梱
-- **Pre-commit** 設定済み
-- **OCA準拠** の開発環境
-- **VSCode Dev Container** 対応
+このブランチは「Odoo 18.0 + Docker開発環境構築ガイド」に対応しています。
 
 ## クイックスタート
 
 ```bash
-git checkout 18.0
+# 1. リポジトリをクローン
+git clone https://github.com/tkuratty/odoo-docker-compose.git
+cd odoo-docker-compose
+
+# 2. このブランチをチェックアウト
+git checkout article/odoo18-docker-setup
+
+# 3. コンテナを起動
 docker compose up -d
+
+# 4. ブラウザでアクセス
+open http://localhost:8069
 ```
 
-## 含まれるツール
+## 含まれるもの
 
 - Odoo 18.0（最新版）
 - PostgreSQL 16
 - GitHub CLI
 - Pre-commit
-- pylint-odoo, flake8, black, isort
-- debugpy
+- 開発用ツール一式
 
-## License
+## ディレクトリ構成
 
-MIT
+```
+.
+├── docker-compose.yml    # Docker Compose設定
+├── odoo18/
+│   └── Dockerfile        # Odooカスタムイメージ
+└── README.md             # このファイル
+```
+
+## 次のステップ
+
+環境ができたら、モジュール開発やカスタマイズを始められます！
+
+---
+
+*詳細な解説記事は別途参照*
