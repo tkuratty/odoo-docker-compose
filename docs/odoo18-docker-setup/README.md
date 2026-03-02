@@ -108,7 +108,7 @@ docker compose up -d
 
 **初期設定画面:**
 
-![Odoo初期設定画面](assets/odoo-setup-page.png)
+![Odoo初期設定画面](images/odoo-setup-page.png)
 
 初回アクセス時はデータベース作成画面が表示されます。画面の指示に従ってデータベースを作成してください。
 
