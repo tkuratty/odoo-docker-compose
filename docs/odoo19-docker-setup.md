@@ -108,7 +108,9 @@ docker compose up -d
 
 ## よくあるトラブル
 
-### ポートの競合
+### ポートの競合（Incus/LXC環境など）
+
+特権ポート（1024未満）でエラーが出る場合は、非特権ポートを使用してください：
 
 ```yaml
 # docker-compose.yml でポートを変更
@@ -116,11 +118,28 @@ ports:
   - "18069:8069"
 ```
 
+アクセス時は `http://localhost:18069` を使用します。
+
+**ホスト側での対処（必要に応じて）：**
+```bash
+# ホスト側で特権ポートの制限を緩和
+sudo sysctl net.ipv4.ip_unprivileged_port_start=80
+```
+
 ### 権限エラー
 
 ```bash
 # ディレクトリ権限の修正
 sudo chown -R $USER:$USER ./addons ./workspace
+```
+
+### DB接続エラー
+
+コンテナ起動直後はPostgreSQLの起動に時間がかかる場合があります。30秒ほど待ってから再度アクセスしてください。
+
+```bash
+# ログで確認
+docker compose logs -f db
 ```
 
 ## 次のステップ
