@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:16
     container_name: db
-    user: root
+    privileged: true
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
@@ -18,36 +18,25 @@ services:
       context: ./odoo19
       dockerfile: Dockerfile
     container_name: odoo
-    user: root
+    privileged: true
     depends_on:
       - db
     ports:
       - "8069:8069"
-      # - "20014:8072" # live chat
     tty: true
     command: --
-    # command: /bin/bash # for debug by vscode (do not run odoo)
-    #    command: odoo scaffold /mnt/extra-addons/custom_module
     environment:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
       - PORT=5432
-      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
     volumes:
-      #- /etc/timezone:/etc/timezone:ro
-      #- /etc/localtime:/etc/localtime:ro
-      #- ./entrypoint.sh:/entrypoint.sh # if you want to install additional Python packages, uncomment this line!
       - ~/Documents/odoo/addons:/mnt/extra-addons
       - "odoo-data:/var/lib/odoo"
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
-      - ./odoo19/config:/etc/odoo # for odoo.conf
-      #- type: bind
-      #  source: /run/host-services/ssh-auth.sock
-      #  target: /run/host-services/ssh-auth.sock
-    restart: always # run as a service
+    restart: always
 
 # use existing volumes
 volumes:
