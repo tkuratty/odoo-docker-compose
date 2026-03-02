@@ -1,37 +1,38 @@
-# odoo-docker-compose
+# Odoo Docker Compose
 
-Using odoo16 image from docker hub  
+## ブランチ構成
 
-Changed for my odoo environment on docker based on  
-https://github.com/minhng92/odoo-14-docker-compose
+- `main` - 安定版（Odoo 16）
+- `19.0` - 開発版（Odoo 17 + 開発ツール）← 現在のブランチ
 
-Added some development tools.  
+## 19.0ブランチの特徴
 
-# Usase
+- **Odoo 17**（最新版）対応
+- **GitHub CLI (gh)** 同梱
+- **Pre-commit** 設定済み
+- **OCA準拠** の開発環境
+- **技術記事** 付属（`articles/`）
 
-```
-$ docker-compose up
-```
+## クイックスタート
 
-# After connected from VSCode using devcontainer function
-
-## Use ssh key on Windows
-Activate ssh-agent on windows.  
-```
-ssh-add -l
-```
-Confirm ssh connection to GitHub in the container.  
-```
-ssh -T git@github.com
+```bash
+git checkout 19.0
+docker compose up -d
 ```
 
-## Settings for git
-```
-git config --global core.editor "code --wait"
-git config --global core.autocrlf input
-git config --global --unset core.sshCommand
-git config --global core.sshCommand /usr/bin/ssh
-git config --global user.name "[YOUR NAME]"
-git config --global user.email "[YOUR EMAIL]"
+## 含まれるツール
 
-```
+- Odoo 17
+- PostgreSQL 16
+- GitHub CLI
+- Pre-commit
+- pylint-odoo, flake8, black, isort
+- debugpy
+
+## 技術記事
+
+- [Odoo 17 + Docker開発環境構築ガイド](articles/odoo17-docker-setup.md)
+
+## License
+
+MIT

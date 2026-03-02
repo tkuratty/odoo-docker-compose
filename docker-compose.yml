@@ -1,7 +1,8 @@
-version: "3"
+version: "3.8"
+
 services:
   db:
-    image: postgres
+    image: postgres:16
     container_name: db
     user: root
     environment:
@@ -14,7 +15,7 @@ services:
 
   odoo:
     build:
-      context: ./odoo16
+      context: ./odoo19
       dockerfile: Dockerfile
     container_name: odoo
     user: root
@@ -42,7 +43,7 @@ services:
       - "odoo-vscode:/opt/odoo/.vscode"
       - "odoo-home:/root"
       - "odoo-custom-addons:/opt/odoo/custom-addons"
-      - ../config:/etc/odoo # for odoo.conf
+      - ./odoo19/config:/etc/odoo # for odoo.conf
       #- type: bind
       #  source: /run/host-services/ssh-auth.sock
       #  target: /run/host-services/ssh-auth.sock
