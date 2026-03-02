@@ -104,7 +104,13 @@ volumes:
 docker compose up -d
 ```
 
-ブラウザで `http://localhost:8069` にアクセス。
+ブラウザで `http://localhost:8069` （ポートを変更した場合は `http://localhost:18069`）にアクセス。
+
+**初期設定画面:**
+
+![Odoo初期設定画面](assets/odoo-setup-page.png)
+
+初回アクセス時はデータベース作成画面が表示されます。画面の指示に従ってデータベースを作成してください。
 
 ## よくあるトラブル
 
