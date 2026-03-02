@@ -29,20 +29,6 @@ docker compose up -d
 - pylint-odoo, flake8, black, isort
 - debugpy
 
-## 技術記事
-
-技術記事は別リポジトリで管理しています：
-
-📚 **[my-documents](https://github.com/tkuratty/my-documents)** - Odoo技術記事集
-
-- Odoo 18.0 + Docker開発環境構築ガイド
-- VSCode + Dev Containerデバッグ環境構築ガイド
-- Odooモジュール開発入門
-- OCA（Odoo Community Association）完全ガイド
-- Kanbanビュー完全ガイド
-- ワークフローと承認フロー実装ガイド
-- QWebレポート作成完全ガイド
-
 ## License
 
 MIT
