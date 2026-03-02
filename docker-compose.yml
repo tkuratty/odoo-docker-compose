@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8069:8069"
+      - "18069:8069"
     tty: true
     command: --
     environment:
