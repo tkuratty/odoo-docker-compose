@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_task_tree" model="ir.ui.view">
+        <field name="name">my_task_module.task.tree</field>
+        <field name="model">my_task_module.task</field>
+        <field name="arch" type="xml">
+            <tree string="タスク">
+                <field name="name"/>
+                <field name="status"/>
+                <field name="priority"/>
+                <field name="assignee_id"/>
+                <field name="deadline"/>
+                <field name="is_overdue"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_task_form" model="ir.ui.view">
+        <field name="name">my_task_module.task.form</field>
+        <field name="model">my_task_module.task</field>
+        <field name="arch" type="xml">
+            <form string="タスク">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="status"/>
+                        <field name="priority"/>
+                    </group>
+                    <group>
+                        <field name="assignee_id"/>
+                        <field name="deadline"/>
+                        <field name="is_overdue" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="説明">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_task" model="ir.actions.act_window">
+        <field name="name">タスク</field>
+        <field name="res_model">my_task_module.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_task_root" name="タスク管理" sequence="10"/>
+    <menuitem id="menu_task" name="タスク" parent="menu_task_root" action="action_task" sequence="10"/>
+</odoo>
